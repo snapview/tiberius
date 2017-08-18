@@ -456,7 +456,6 @@ impl<I: Io> ParseToken<I> for TokenNbcRow {
 
             // calculate size of the null-bitmap and read it
             let bitmap_size = (col_meta.columns.len() + 8 - 1) / 8;
-            println!("{} columns => {} bits", col_meta.columns.len(), bitmap_size);
             trans.inner.row_bitmap = trans.inner.read_bytes(bitmap_size);
         }
 
